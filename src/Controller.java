@@ -36,15 +36,21 @@ public class Controller implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String s = e.getActionCommand();
 
-        if (s == "+" || s == "-" || s == "*" || s == "/") {
+        if (s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/")) {
             this.model.operation(s);
-        } else if (s == "=") {
+        } else if (s.equals("=")) {
             this.model.calculateSum();
         } else {
             int j = Integer.parseInt(s);
             this.model.numbers(j);
         }
+        this.displayAnswer();
+    }
 
-
+    public void displayAnswer() {
+        int sum = this.model.sum;
+        if (sum != 0) {
+            this.view.displayAnswer(sum);
+        }
     }
 }

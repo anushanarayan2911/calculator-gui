@@ -66,12 +66,8 @@ public class View {
         frame.setVisible(true);
     }
 
-    public void updateSum(String[] numbers) {
-        String s = "";
-        for (int i = 0; i < numbers.length; i++) {
-            s += numbers[i];
-        }
-        sum.setText(s);
+    public void displayAnswer(int i) {
+        sum.setText(Integer.toString(i));
     }
 
 }

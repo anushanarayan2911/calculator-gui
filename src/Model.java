@@ -23,8 +23,6 @@ public class Model {
     }
 
     public void calculateSum() {
-        System.out.print(numbers[0]);
-        System.out.print(numbers[1]);
         switch (operation) {
             case "addition" -> {
                 sum = numbers[0] + numbers[1];
