@@ -35,6 +35,16 @@ public class Controller implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String s = e.getActionCommand();
-        this.model.numbers(s);
+
+        if (s == "+" || s == "-" || s == "*" || s == "/") {
+            this.model.operation(s);
+        } else if (s == "=") {
+            this.model.calculateSum();
+        } else {
+            int j = Integer.parseInt(s);
+            this.model.numbers(j);
+        }
+
+
     }
 }
