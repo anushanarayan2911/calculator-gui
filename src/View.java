@@ -6,9 +6,10 @@ public class View {
     private JFrame frame;
     private JPanel panel1;
     private JLabel sum;
+    private String text = new String("");
 
-    public JButton button1;
-    public JButton button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonPoint, buttonEquals;
+    public JButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonPoint, buttonEquals;
+
 
     public View() {
         frame = new JFrame();
@@ -20,7 +21,7 @@ public class View {
         panel1.setSize(200, 200);
         panel1.setLayout(new GridLayout(4, 4));
 
-        sum = new JLabel("");
+        sum = new JLabel(text);
 
         frame.add(panel1);
         frame.add(sum);
@@ -66,8 +67,19 @@ public class View {
         frame.setVisible(true);
     }
 
-    public void displayAnswer(int i) {
-        sum.setText(Integer.toString(i));
+    public void displayCalculation(String[] list) {
+        for (int i = 0; i < list.length; i++) {
+            if (list[i] == null) {
+                if (list[i - 1] != null) {
+                    text = text + list[i - 1];
+                    sum.setText(text);
+                }
+            } else if (list[i].equals("=")) {
+                text = text + "=";
+                sum.setText(text);
+            }
+
+        }
     }
 
 }

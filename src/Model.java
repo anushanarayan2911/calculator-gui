@@ -1,6 +1,7 @@
 public class Model {
 
     public int[] numbers = new int[10];
+    public String[] calculationString = new String[10];
     public String operation = new String("");
     public int sum;
 
@@ -13,10 +14,19 @@ public class Model {
         }
     }
 
-    public void numbers(int i) {
+    public void updateNumbers(int i) {
         for (int a = 0; a < numbers.length; a++) {
             if (numbers[a] == 0) {
                 numbers[a] = i;
+                break;
+            }
+        }
+    }
+
+    public void updateCalculationString(String s) {
+        for (int b = 0; b < calculationString.length; b++) {
+            if (calculationString[b] == null) {
+                calculationString[b] = s;
                 break;
             }
         }

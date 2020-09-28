@@ -38,19 +38,21 @@ public class Controller implements ActionListener{
 
         if (s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/")) {
             this.model.operation(s);
+            this.model.updateCalculationString(s);
         } else if (s.equals("=")) {
             this.model.calculateSum();
+            this.model.updateCalculationString(s);
+            int sum = this.model.sum;
+            this.model.updateCalculationString(Integer.toString(sum));
         } else {
             int j = Integer.parseInt(s);
-            this.model.numbers(j);
+            this.model.updateNumbers(j);
+            this.model.updateCalculationString(s);
         }
-        this.displayAnswer();
+        this.displayCalculation();
     }
 
-    public void displayAnswer() {
-        int sum = this.model.sum;
-        if (sum != 0) {
-            this.view.displayAnswer(sum);
-        }
+    public void displayCalculation() {
+        this.view.displayCalculation(this.model.calculationString);
     }
 }
